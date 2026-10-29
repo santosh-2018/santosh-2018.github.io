@@ -1,0 +1,402 @@
+<title>Santosh Das</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: AcademicPages-style — sticky top menu, left profile sidebar, single reading column of sections */
+:root{
+  --bg:#f7f9fa; --surface:#ffffff; --fg:#1b2529; --muted:#5b6b72; --line:#dfe6e9;
+  --accent:#0d6e74; --accent-soft:#e3f1f1; --chip:#eef3f4;
+  --display:"Fraunces", Georgia, "Times New Roman", serif;
+  --body:"Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --mono:"JetBrains Mono", ui-monospace, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#11181b; --surface:#172126; --fg:#e4eced; --muted:#93a5ab; --line:#26343a;
+  --accent:#5cc4c4; --accent-soft:#183236; --chip:#1d2a2f; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#11181b; --surface:#172126; --fg:#e4eced; --muted:#93a5ab; --line:#26343a;
+  --accent:#5cc4c4; --accent-soft:#183236; --chip:#1d2a2f; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.65}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:3px}
+
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.topbar-in{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:20px;
+  padding-block:12px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.brand{font-family:var(--display);font-weight:600;font-size:1.15rem;color:var(--fg);white-space:nowrap}
+.nav{display:flex;gap:18px;overflow-x:auto;flex:1;min-width:0;scrollbar-width:none}
+.nav::-webkit-scrollbar{display:none}
+.nav a{color:var(--muted);font-size:.95rem;white-space:nowrap}
+.nav a:hover{color:var(--accent);text-decoration:none}
+.theme{background:none;border:1px solid var(--line);color:var(--fg);border-radius:6px;width:34px;height:34px;cursor:pointer;flex:none;font-size:15px}
+
+.wrap{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:260px minmax(0,1fr);gap:56px;
+  padding-block:40px 64px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+/* Sidebar */
+.side{position:sticky;top:calc(env(safe-area-inset-top,0px) + 84px);align-self:start;display:flex;flex-direction:column;gap:14px}
+.avatar{width:150px;height:150px;border-radius:50%;background:var(--accent-soft);color:var(--accent);
+  object-fit:cover;max-width:100%;border:1px solid var(--line)}
+.side h2{font-family:var(--display);font-weight:600;font-size:1.45rem;margin:4px 0 0;line-height:1.2}
+.side .role{color:var(--muted);font-size:.95rem;margin:0;line-height:1.45}
+.links{list-style:none;padding:0;margin:4px 0 0;display:flex;flex-direction:column;gap:8px;font-size:.93rem}
+.links li{display:flex;gap:10px;align-items:baseline;min-width:0}
+.links .k{font-family:var(--mono);font-size:.7rem;color:var(--muted);width:56px;flex:none;text-transform:uppercase;letter-spacing:.06em}
+.links .v{min-width:0;overflow-wrap:anywhere}
+.copy{background:none;border:none;color:var(--muted);cursor:pointer;font:inherit;font-size:.8rem;padding:0;margin-left:6px}
+.badges{display:flex;flex-wrap:wrap;gap:6px}
+.badge{font-family:var(--mono);font-size:.7rem;background:var(--chip);color:var(--muted);padding:3px 8px;border-radius:4px;letter-spacing:.03em}
+
+/* Main */
+main{min-width:0;max-width:760px}
+main section{scroll-margin-top:90px;padding-bottom:12px}
+h1{font-family:var(--display);font-weight:600;font-size:clamp(1.9rem,4vw,2.5rem);line-height:1.15;margin:0 0 18px;text-wrap:balance}
+h2.sec{font-family:var(--display);font-weight:600;font-size:1.5rem;margin:44px 0 16px;padding-bottom:8px;border-bottom:1px solid var(--line);text-wrap:balance}
+h3{font-size:1.05rem;margin:22px 0 8px}
+p{margin:0 0 14px}
+.lead{font-size:1.06rem}
+
+.interests{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 28px;margin:6px 0 18px}
+.interests div{min-width:0}
+.interests b{display:block;font-size:1rem}
+.interests span{color:var(--muted);font-size:.95rem}
+
+details{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin:8px 0 6px}
+summary{cursor:pointer;font-weight:600;color:var(--accent)}
+details p{margin-top:12px}
+
+.news{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+.news li{display:grid;grid-template-columns:96px minmax(0,1fr);gap:14px}
+.news time{font-family:var(--mono);font-size:.8rem;color:var(--muted);padding-top:3px;font-variant-numeric:tabular-nums}
+
+.pubs{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:18px}
+.pub{display:grid;grid-template-columns:62px minmax(0,1fr);gap:14px}
+.pub .tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);
+  background:var(--accent-soft);border-radius:4px;padding:3px 0;text-align:center;align-self:start;margin-top:3px}
+.pub .t{font-weight:600;display:block;line-height:1.4}
+.pub .a{color:var(--muted);font-size:.93rem;display:block}
+.pub .a .me{color:var(--fg);font-weight:600}
+.pub .v{font-style:italic;font-size:.93rem;display:block}
+.pub .l{font-size:.88rem}
+
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 28px}
+ul.plain{padding-left:18px;margin:0 0 12px}
+ul.plain li{margin-bottom:6px}
+
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:8px;background:var(--surface)}
+table{width:100%;border-collapse:collapse;font-size:.95rem;min-width:520px}
+th,td{text-align:left;padding:10px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500}
+tr:last-child td{border-bottom:none}
+td.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+
+.collab{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.collab div{min-width:0;font-size:.95rem}
+.collab b{display:block}
+.collab span{color:var(--muted)}
+
+.contact{background:var(--accent-soft);border-radius:8px;padding:18px 20px;margin-top:40px}
+footer{color:var(--muted);font-size:.85rem;border-top:1px solid var(--line);margin-top:40px;padding-top:16px}
+
+@media (max-width:900px){
+  .wrap{grid-template-columns:minmax(0,1fr);gap:28px;padding-block:24px 48px}
+  .side{position:static;display:grid;grid-template-columns:96px minmax(0,1fr);column-gap:18px;row-gap:10px;align-items:center}
+  .avatar{width:96px;height:96px;grid-row:span 2}
+  .side h2{margin:0}
+  .links,.badges{grid-column:1/-1}
+}
+@media (max-width:560px){
+  .interests,.two,.collab{grid-template-columns:minmax(0,1fr)}
+  .news li{grid-template-columns:minmax(0,1fr);gap:0}
+  .pub{grid-template-columns:minmax(0,1fr);gap:6px}
+  .pub .tag{justify-self:start;padding:3px 8px}
+  .brand{display:none}
+}
+</style>
+
+<header class="topbar">
+  <div class="topbar-in">
+    <a class="brand" href="#about">Santosh Das</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#about">Home</a>
+      <a href="#news">News</a>
+      <a href="#publications">Publications</a>
+      <a href="#patents">Patents</a>
+      <a href="#teaching">Teaching</a>
+      <a href="#services">Professional Services</a>
+      <a href="#experience">Experience</a>
+      <a href="#awards">Awards</a>
+    </nav>
+    <button class="theme" id="themeBtn" type="button" aria-label="Toggle dark mode">◐</button>
+  </div>
+</header>
+
+<div class="wrap">
+  <aside class="side">
+    <img class="avatar" src="data:image/jpeg;base64,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" alt="Photo of Santosh Das">
+    <div>
+      <h2>Santosh Das</h2>
+      <p class="role">Assistant Professor, Dept. of IT<br>Haldia Institute of Technology</p>
+    </div>
+    <ul class="links">
+      <li><span class="k">Based</span><span class="v">Haldia &amp; Howrah, West Bengal</span></li>
+      <li><span class="k">Email</span><span class="v"><span id="em">das2008.santosh@gmail.com</span><button class="copy" type="button" data-copy="das2008.santosh@gmail.com">copy</button></span></li>
+      <li><span class="k">IEEE</span><span class="v">santoshdas@ieee.org</span></li>
+      <li><span class="k">ACM</span><span class="v">santoshdas1@acm.org</span></li>
+      <li><span class="k">Profiles</span><span class="v"><a href="https://scholar.google.com/citations?user=OKqazYgAAAAJ&amp;hl=en">Google Scholar</a> · <a href="https://www.linkedin.com/in/santoshcseiitkgp/">LinkedIn</a> · <a href="https://vidwan.inflibnet.ac.in/myprofile">Vidwan</a></span></li>
+    </ul>
+    <div class="badges">
+      <span class="badge">IEEE Member</span><span class="badge">ACM Member</span><span class="badge">SWAN Lab · IIT KGP</span>
+    </div>
+  </aside>
+
+  <main>
+    <section id="about">
+      <h1>Hi, I am Santosh Das.</h1>
+      <p class="lead">I am an Assistant Professor in the Department of Information Technology at <a href="https://hithaldia.ac.in/">Haldia Institute of Technology</a>, West Bengal, with 15 years of teaching experience in computer science and engineering. I am also a member and researcher at the <a href="https://cse.iitkgp.ac.in/~smisra/swan/">SWAN Lab, IIT Kharagpur</a>.</p>
+      <p>I am a registered Ph.D. scholar at <a href="https://jadavpuruniversity.in/">Jadavpur University</a>, jointly supervised by <a href="https://cse.iitkgp.ac.in/~smisra/">Prof. Sudip Misra</a> (Department of CSE, IIT Kharagpur) and Prof. Parama Bhaumik (Department of IT, Jadavpur University). My thesis topic is <em>Realising Blockchain over Physical IoT</em>. Before joining HIT Haldia, I taught at OmDayal Group of Institutions and Dream Institute of Technology. I completed my M.Eng. and B.Tech. at WBUT.</p>
+
+      <h2 class="sec">Research Interests</h2>
+      <div class="interests">
+        <div><b>Blockchain over IoT</b><span>Mining on resource-constrained edge nodes, energy and time profiling.</span></div>
+        <div><b>Edge &amp; Fog Computing</b><span>Edge analytics, fog-based healthcare systems.</span></div>
+        <div><b>6G IoT Networks</b><span>Learning-aware block assignment for edge blockchain.</span></div>
+        <div><b>Applied ML &amp; Healthcare IoT</b><span>Smart e-healthcare, wearable sensing, disease prediction.</span></div>
+      </div>
+      <details>
+        <summary>Brief research summary (click to expand)</summary>
+        <p>IoT consists of a distributed network of resource-constrained nodes at the edge. Taken together, these nodes can serve as a computing and storage infrastructure for blockchain mining at the edge. Mining is energy-intensive, especially for low-power IoT boards.</p>
+        <p>We ran experiments across different block difficulty levels and hash functions, recording the energy and time each IoT board consumed. The result is an empirical relation for blockchain mining on constrained nodes, which helps choose the right board in a resource-limited setting. Using this relation, we proposed a strategy for selecting the nodes that use the least energy and time as mining cores, formulated through Pareto non-dominance.</p>
+        <p>The work extends to edge/fog computing and blockchain-enabled IoT applications. I aim to publish in reputed IEEE journals and conferences, collaborate on interdisciplinary and externally funded projects, and turn research outcomes into patents and real deployments.</p>
+      </details>
+    </section>
+
+    <section id="news">
+      <h2 class="sec">Recent News</h2>
+      <ul class="news">
+        <li><time>Oct 2026</time><span>Reviewing for <b>ICONIP 2026</b> (Melbourne), <b>ICONEST 2026</b> (Tuban, Indonesia) and <b>ICAAHI 2026</b> (Singapore).</span></li>
+        <li><time>2026</time><span>Book chapter <em>Applications of Artificial Intelligence in Cybersecurity: A Systematic Review</em> approved for publication in <em>Frontiers in STEM Research</em> (Exegium Scholarly Press).</span></li>
+        <li><time>2026</time><span>Served as WBJEE and WBJECA Board Observer, appointed by the West Bengal Joint Entrance Examinations Board.</span></li>
+        <li><time>2026</time><span>Submitted <em>LABE6G: Learning Aware Block Assignment for Edge Blockchain over 6G IoT</em> to <b>IEEE Transactions on Cognitive Communications and Networking</b>.</span></li>
+        <li><time>Aug 2025</time><span>Joined <b>Haldia Institute of Technology</b> as Assistant Professor, Department of IT.</span></li>
+        <li><time>Aug 2025</time><span>Technical committee member, International Conference on Smart Computing, Communication and Automation, BBIT.</span></li>
+        <li><time>2025</time><span>Paper on <em>Optimal Node Selection for Blockchain Mining over IoT through Pareto Non-Dominance</em> published at <b>IEEE INDISCON 2025</b>, NIT Rourkela.</span></li>
+        <li><time>2024</time><span>Paper on <em>Energy Consumption Analysis of Blockchain Mining over Constrained IoT Nodes</em> published at <b>IEEE INDICON 2024</b>.</span></li>
+        <li><time>May 2024</time><span>Indian patent filed: <em>IoT-based Electric Vehicle Charger Locator</em> (Appl. No. 202431039110).</span></li>
+        <li><time>Aug 2022</time><span>Indian patent filed: <em>Integrated IoT Augmented-Reality Framework for Health Monitoring</em> (Appl. No. 202231044023).</span></li>
+      </ul>
+    </section>
+
+    <section id="publications">
+      <h2 class="sec">Publications</h2>
+      <h3>Ph.D. work (with SWAN Lab, IIT Kharagpur &amp; Jadavpur University)</h3>
+      <ol class="pubs">
+        <li class="pub"><span class="tag">Journal</span><div>
+          <span class="t">LABE6G: Learning Aware Block Assignment for Edge Blockchain over 6G IoT</span>
+          <span class="a"><span class="me">Santosh Das</span>, Kounteya Sarkar, Vajrala Raghavesh Reddy, Parama Bhaumik, Sudip Misra</span>
+          <span class="v">Submitted to IEEE Transactions on Cognitive Communications and Networking</span></div></li>
+        <li class="pub"><span class="tag">Conf</span><div>
+          <span class="t">Optimal Node Selection for Blockchain Mining over IoT through Pareto Non-Dominance</span>
+          <span class="a"><span class="me">Santosh Das</span>, Kounteya Sarkar, Sudip Misra, Parama Bhaumik</span>
+          <span class="v">IEEE INDISCON 2025</span>
+          <a class="l" href="https://ieeexplore.ieee.org/document/11251655">IEEE Xplore</a></div></li>
+        <li class="pub"><span class="tag">Conf</span><div>
+          <span class="t">An Empirical Energy Consumption Analysis of Blockchain Mining over Constrained IoT Nodes</span>
+          <span class="a"><span class="me">Santosh Das</span>, Rajdeep Ghosh, Kounteya Sarkar, Sudip Misra</span>
+          <span class="v">IEEE INDICON 2024</span>
+          <a class="l" href="https://ieeexplore.ieee.org/document/10958366">IEEE Xplore</a></div></li>
+      </ol>
+      <p style="color:var(--muted);font-size:.93rem;margin-top:12px">Two further works are being prepared for IEEE journal submission.</p>
+
+      <h3>Other papers</h3>
+      <ol class="pubs">
+        <li class="pub"><span class="tag">Conf</span><div>
+          <span class="t">Developing an IoT-based Fog Computing Environment for Breast Cancer Disease Prediction based Healthcare System</span>
+          <span class="a"><span class="me">Santosh Das</span> et al.</span>
+          <span class="v">ICETCE 2023, Springer</span>
+          <a class="l" href="https://link.springer.com/chapter/10.1007/978-981-96-6066-7_37">Springer</a></div></li>
+        <li class="pub"><span class="tag">Conf</span><div>
+          <span class="t">A Machine Learning Approach to Predict NICU Units in Hospital by Developing Smart e-Healthcare System</span>
+          <span class="a"><span class="me">Santosh Das</span>, Ritam Dutta, Nikita Agarwal, Bhaskar Roy, Papri Ghosh</span>
+          <span class="v">3rd ICPCSN, June 2023, IEEE</span>
+          <a class="l" href="https://ieeexplore.ieee.org/abstract/document/10266092">IEEE Xplore</a></div></li>
+        <li class="pub"><span class="tag">Journal</span><div>
+          <span class="t">Overview of Various Optimization Techniques for Recommendation System</span>
+          <span class="a"><span class="me">Santosh Das</span>, Anup Kolya</span>
+          <span class="v">IJIERT, Vol. 7, Issue 10, Oct 2020</span></div></li>
+        <li class="pub"><span class="tag">Journal</span><div>
+          <span class="t">An Innovative Approach for Securing RFID based Card Information from Digital Pick-Pocketing</span>
+          <span class="a">Dipankar Sarkar, Manish Roy, <span class="me">Santosh Das</span></span>
+          <span class="v">IJIERT, Vol. 5, Issue 10, Oct 2018</span>
+          <a class="l" href="https://www.ijiert.org/paper-details?paper_id=141327">Paper</a></div></li>
+        <li class="pub"><span class="tag">Conf</span><div>
+          <span class="t">Proposed System Control Flow for Designing Curriculum under the Framework of Outcome Based Education to Optimize Knowledge Transfer</span>
+          <span class="a">Somsubhra Gupta, <span class="me">Santosh Das</span>, Abhijit Pramanik</span>
+          <span class="v">ICTIEE-AP 2018</span>
+          <a class="l" href="http://ictiee.org/ictieeap2018/">Conference</a></div></li>
+        <li class="pub"><span class="tag">Journal</span><div>
+          <span class="t">An Effective Way for Paperless Investment</span>
+          <span class="a"><span class="me">Santosh Das</span></span>
+          <span class="v">IJERT, Vol. 2, Issue 4, April 2013</span>
+          <a class="l" href="http://www.ijert.org/view-pdf/3332/an-effective-way-for-paperless-investment-">Paper</a></div></li>
+        <li class="pub"><span class="tag">Conf</span><div>
+          <span class="t">A Logical Topology to Find Alternate Routes in WDM Lightwave Network</span>
+          <span class="a"><span class="me">Santosh Das</span> et al.</span>
+          <span class="v">CCSIT 2012, Bangalore, Springer</span>
+          <a class="l" href="http://link.springer.com/chapter/10.1007/978-3-642-27299-8_16">Springer</a></div></li>
+      </ol>
+
+      <h3>Book chapters</h3>
+      <ol class="pubs">
+        <li class="pub"><span class="tag">Chapter</span><div>
+          <span class="t">Edge Computing and Analytics: A New Computing Paradigm for Better User Experience</span>
+          <span class="a"><span class="me">Santosh Das</span>, Pethuru Raj</span>
+          <span class="v">In <em>Industry Automation: The Technologies, Platforms and Use Cases</em>, Taylor &amp; Francis</span>
+          <a class="l" href="https://www.taylorfrancis.com/chapters/edit/10.1201/9781003516668-16/edge-computing-analyticsnew-computing-paradigm-better-user-experience-santosh-das-pethuru-raj">Taylor &amp; Francis</a></div></li>
+        <li class="pub"><span class="tag">Chapter</span><div>
+          <span class="t">Applications of Artificial Intelligence in Cybersecurity: A Systematic Review of Techniques, Challenges, and Future Directions</span>
+          <span class="a"><span class="me">Santosh Das</span></span>
+          <span class="v">Accepted in <em>Frontiers in STEM Research</em>, Exegium Scholarly Press</span></div></li>
+        <li class="pub"><span class="tag">Chapter</span><div>
+          <span class="t">A Technology Analysis of Wearable Sensors for Monitoring Healthcare System</span>
+          <span class="a"><span class="me">Santosh Das</span></span>
+          <span class="v">B.P. International, Jan 2023</span>
+          <a class="l" href="https://stm.bookpi.org/RPST-V5/article/view/9723">Chapter</a></div></li>
+      </ol>
+      <p style="color:var(--muted);font-size:.93rem;margin-top:12px">A textbook on Computer Architecture is in progress.</p>
+    </section>
+
+    <section id="patents">
+      <h2 class="sec">Patents</h2>
+      <ol class="pubs">
+        <li class="pub"><span class="tag">Patent</span><div>
+          <span class="t">System and Method of Internet of Things (IoT) based Electric Vehicle Charger Locator</span>
+          <span class="a">K. Sarkar, <span class="me">S. Das</span>, S. Misra, S. Ghosh, T. Chakraborty</span>
+          <span class="v">Indian Patent Application No. 202431039110, filed 18 May 2024</span></div></li>
+        <li class="pub"><span class="tag">Patent</span><div>
+          <span class="t">An Integrated IoT Augmented Reality based Framework for Health Monitoring System</span>
+          <span class="a"><span class="me">Santosh Das</span> et al.</span>
+          <span class="v">Indian Patent Application No. 202231044023, filed 19 Aug 2022</span></div></li>
+      </ol>
+    </section>
+
+    <section id="teaching">
+      <h2 class="sec">Academic Courses</h2>
+      <p>Courses I have taught at the undergraduate level:</p>
+      <div class="two">
+        <ul class="plain">
+          <li>Computer Organization</li><li>Computer Architecture</li><li>Software Engineering</li><li>Data Structures &amp; Algorithms</li><li>Web &amp; Internet Technology</li>
+        </ul>
+        <ul class="plain">
+          <li>Internet of Things</li><li>Blockchain</li><li>Computer Programming</li><li>Computer Networks</li>
+        </ul>
+      </div>
+      <h3>Student mentoring</h3>
+      <p>I helped two students secure research internships at SWAN Lab, IIT Kharagpur, and two others find jobs at Adansa Solutions Pvt. Ltd. and Cryonano Labs Pvt. Ltd. I was principal guide on an autonomous number-plate detection system built on Raspberry Pi for Ellen Barrie Industrial Gases Ltd.</p>
+    </section>
+
+    <section id="services">
+      <h2 class="sec">Professional Services</h2>
+      <h3>Reviewing &amp; program committees</h3>
+      <ul class="plain">
+        <li>Reviewer, ICONIP 2026, Melbourne, Australia</li>
+        <li>Reviewer, ICONEST 2026, Universitas PGRI Ronggolawe, Indonesia</li>
+        <li>Reviewer, ICAAHI 2026, Nanyang Institute of Management, Singapore</li>
+        <li>Reviewer, IEEE INDISCON 2025, NIT Rourkela</li>
+        <li>Technical committee member, Int. Conf. on Smart Computing, Communication and Automation, BBIT, Aug 2025</li>
+        <li>Reviewer, ICONIP 2024, Auckland, New Zealand</li>
+        <li>Reviewer, Int. Conf. on Signal Processing, Computation, Electronics, Power and Telecommunication, NIT Puducherry (2024, 2025)</li>
+        <li>TPC member, ICIDA 2023</li>
+        <li>Reviewer, ICEDC 2023 (technically co-sponsored by IEEE Kolkata Section)</li>
+        <li>Editorial board member: IJSET, JAIIM, IJAI · Reviewer: IJIERT</li>
+      </ul>
+      <h3>Examination &amp; university duties</h3>
+      <ul class="plain">
+        <li>WBJEE Board Observer, 2022–2026; WBJECA Board Observer, 2026</li>
+        <li>MAKAUT question paper setter, examiner and external practical examiner</li>
+        <li>Question paper moderator, Swami Vivekananda University, Barrackpore</li>
+        <li>External expert for project viva, Brainware University</li>
+        <li>CCTV coordinator, university examination system</li>
+      </ul>
+      <h3>Memberships</h3>
+      <p>IEEE · ACM · Internet Society · International Association of Engineers · Asia Pacific Neural Network Society · SDIWC · I2OR · World Research Union</p>
+    </section>
+
+    <section id="experience">
+      <h2 class="sec">Experience &amp; Education</h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Position</th><th>Institution</th><th>Period</th></tr></thead>
+        <tbody>
+          <tr><td>Assistant Professor (IT)</td><td>Haldia Institute of Technology</td><td class="num">Aug 2025 – present</td></tr>
+          <tr><td>Assistant Professor (CSE)</td><td>OmDayal Group of Institutions</td><td class="num">Feb 2020 – Aug 2025</td></tr>
+          <tr><td>Assistant Professor (CSE)</td><td>Dream Institute of Technology</td><td class="num">Apr 2011 – Feb 2020</td></tr>
+        </tbody>
+      </table></div>
+      <div class="table-wrap" style="margin-top:16px"><table>
+        <thead><tr><th>Degree</th><th>Institution</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>Ph.D. (Engg.)</td><td>Jadavpur University</td><td>Registered</td></tr>
+          <tr><td>M.Eng.</td><td>WBUT (in-house)</td><td class="num">7.08 SGPA</td></tr>
+          <tr><td>B.Tech.</td><td>WBUT</td><td class="num">7.89 SGPA</td></tr>
+        </tbody>
+      </table></div>
+
+      <h3>Collaborators</h3>
+      <div class="collab">
+        <div><b>Prof. Eirini Eleni Tsiropoulou</b><span>PROTON Lab, Arizona State University</span></div>
+        <div><b>Dr. Abdur Rahaman Alamoudi</b><span>University of Jeddah, Saudi Arabia</span></div>
+        <div><b>Dr. Biswarup Ghosh</b><span>CEO, GIAST Inc., USA</span></div>
+        <div><b>Dr. Pethuru Raj</b><span>Chief Architect, Edge AI, Reliance Jio Platforms</span></div>
+        <div><b>Mr. Soumen Sardar</b><span>Data Science Lead, Smiths Detection</span></div>
+        <div><b>Mr. Koushik Deb</b><span>Senior System Engineer, Harman Kardon</span></div>
+      </div>
+    </section>
+
+    <section id="awards">
+      <h2 class="sec">Awards &amp; Recognition</h2>
+      <ul class="plain">
+        <li>“Top SPOC” award, Govt. of West Bengal, for student mentoring in Secure Bengal 2021</li>
+        <li>Award from MAKAUT for mentoring the best student project, Anweshan 2022</li>
+        <li>Recognised by the Govt. of India as SPOC for organising Smart India Hackathon 2022</li>
+        <li>Mentor, Smart India Hackathon 2017 (team secured 3rd position) and 2018</li>
+        <li>Letter of appreciation from IIT Bombay for software training workshops under NMEICT</li>
+        <li>Appreciation from Texas Instruments for bridging government, industry and academia</li>
+      </ul>
+    </section>
+
+    <div class="contact">
+      <b>Get in touch.</b> I welcome collaboration on blockchain-enabled IoT, edge computing and 6G networks, and enquiries from students interested in research internships. Write to me at <b>das2008.santosh@gmail.com</b>.
+    </div>
+
+    <footer>© 2026 Santosh Das · Haldia Institute of Technology, West Bengal, India</footer>
+  </main>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement, btn=document.getElementById('themeBtn');
+  try{var s=localStorage.getItem('theme'); if(s) root.setAttribute('data-theme',s);}catch(e){}
+  btn.addEventListener('click',function(){
+    var cur=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+    var next=cur==='dark'?'light':'dark';
+    root.setAttribute('data-theme',next);
+    try{localStorage.setItem('theme',next);}catch(e){}
+  });
+  document.querySelectorAll('.copy').forEach(function(b){
+    b.addEventListener('click',function(){
+      var t=b.getAttribute('data-copy');
+      var done=function(){b.textContent='copied';setTimeout(function(){b.textContent='copy'},1500)};
+      try{navigator.clipboard.writeText(t).then(done,function(){sel()});}catch(e){sel()}
+      function sel(){var r=document.createRange();r.selectNodeContents(document.getElementById('em'));var s=getSelection();s.removeAllRanges();s.addRange(r);}
+    });
+  });
+})();
+</script>
